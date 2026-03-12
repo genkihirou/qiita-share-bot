@@ -1,0 +1,25 @@
+# ワークフローの名前
+name: qiita notify
+
+# スケジュール設定 12時に設定
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  # テスト用手動実行ボタン
+  workflow_dispatch:
+
+# 実行するジョブの定義
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: node index.js
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
