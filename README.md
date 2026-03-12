@@ -1,0 +1,2 @@
+# qiita-share-bot
+qiitaのIT関連で一番人気な記事を1日一回slackに共有するシステムを試しに作ってっみたいって話
